@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    apt
+}
+
+dependencies {
+    compile project(':DaggerAndroidHelperLibrary')
+    compile 'com.android.support:support-v4:13.0.+'
+    compile 'com.squareup.dagger:dagger:1.0.1'
+    apt 'com.squareup.dagger:dagger-compiler:1.0.1'
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17.0.0"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 16
+    }
+}
