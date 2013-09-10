@@ -26,3 +26,22 @@ android {
         targetSdkVersion 16
     }
 }
+
+tasks.withType(Compile) {
+    options.encoding = 'UTF-8'
+}
+
+def repos = new File(rootDir, "repository")
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${repos.absolutePath}"
+            pom.version = '0.0.1'
+            pom.groupId = 'com.anprosit'
+            pom.artifactId = 'dagger.android'
+        }
+    }
+}
