@@ -1,9 +1,10 @@
-package com.anprosit.dagger.android.ui;
+package com.anprosit.android.dagger.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.anprosit.dagger.android.helper.DaggerHelper;
+import com.anprosit.android.dagger.DaggerContext;
+import com.anprosit.android.dagger.helper.DaggerHelper;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import dagger.ObjectGraph;
 /**
  * Created by Hirofumi Nakagawa on 13/07/27.
  */
-public abstract class DaggerActivity extends Activity {
+public abstract class DaggerActivity extends Activity implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override
@@ -33,7 +34,8 @@ public abstract class DaggerActivity extends Activity {
 		return mHelper.inject(obj);
 	}
 
-	public ObjectGraph getActivityGraph() {
+	@Override
+	public ObjectGraph getObjectGraph() {
 		return mHelper.getObjectGraph();
 	}
 }

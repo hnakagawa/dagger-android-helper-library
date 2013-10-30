@@ -1,10 +1,11 @@
-package com.anprosit.dagger.android.service;
+package com.anprosit.android.dagger.service;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
-import com.anprosit.dagger.android.helper.DaggerHelper;
+import com.anprosit.android.dagger.DaggerContext;
+import com.anprosit.android.dagger.helper.DaggerHelper;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import dagger.ObjectGraph;
 /**
  * Created by Hirofumi Nakagawa on 13/07/27.
  */
-public abstract class DaggerService extends Service {
+public abstract class DaggerService extends Service implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override
@@ -39,7 +40,8 @@ public abstract class DaggerService extends Service {
 		return mHelper.inject(obj);
 	}
 
-	public ObjectGraph getServiceGraph() {
+	@Override
+	public ObjectGraph getObjectGraph() {
 		return mHelper.getObjectGraph();
 	}
 }

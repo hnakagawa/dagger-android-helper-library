@@ -1,11 +1,11 @@
-package com.anprosit.dagger.android;
+package com.anprosit.android.dagger;
 
 import android.app.Activity;
 import android.content.Context;
 
-import com.anprosit.dagger.android.annotation.ForActivity;
-import com.anprosit.dagger.android.ui.DaggerActivity;
-import com.anprosit.dagger.android.ui.DaggerFragmentActivity;
+import com.anprosit.android.dagger.annotation.ForActivity;
+import com.anprosit.android.dagger.ui.DaggerActivity;
+import com.anprosit.android.dagger.ui.DaggerFragmentActivity;
 
 import javax.inject.Singleton;
 
@@ -31,8 +31,8 @@ public class ActivityModule {
 	@Singleton
 	ObjectGraph provideActivityGraph() {
 		if (mActivity instanceof DaggerFragmentActivity)
-			return ((DaggerFragmentActivity) mActivity).getActivityGraph();
-		return ((DaggerActivity) mActivity).getActivityGraph();
+			return ((DaggerFragmentActivity) mActivity).getObjectGraph();
+		return ((DaggerActivity) mActivity).getObjectGraph();
 	}
 
 	@Provides

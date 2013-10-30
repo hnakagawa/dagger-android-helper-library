@@ -1,4 +1,4 @@
-package com.anprosit.dagger.android.factory;
+package com.anprosit.android.dagger.factory;
 
 import android.media.MediaRecorder;
 

@@ -2,7 +2,7 @@ package com.anprosit.dagger.example;
 
 import android.content.Context;
 
-import com.anprosit.dagger.android.annotation.ForActivity;
+import com.anprosit.android.dagger.annotation.ForActivity;
 
 import javax.inject.Singleton;
 

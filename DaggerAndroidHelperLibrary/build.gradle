@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
+        classpath 'com.android.tools.build:gradle:0.6.+'
     }
 }
 apply plugin: 'android-library'
@@ -41,7 +41,7 @@ uploadArchives {
             repository url: "file://${repos.absolutePath}"
             pom.version = '0.0.1'
             pom.groupId = 'com.anprosit'
-            pom.artifactId = 'dagger.android'
+            pom.artifactId = 'android.dagger'
         }
     }
 }

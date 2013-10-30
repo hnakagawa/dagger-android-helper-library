@@ -5,9 +5,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
-import com.anprosit.dagger.android.ActivityModule;
+import com.anprosit.android.dagger.ActivityModule;
+import com.anprosit.android.dagger.ui.DaggerActivity;
 import com.anprosit.dagger.android.example.R;
-import com.anprosit.dagger.android.ui.DaggerActivity;
 
 import java.util.Arrays;
 import java.util.List;

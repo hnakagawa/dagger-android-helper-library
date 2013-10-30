@@ -1,6 +1,8 @@
-package com.anprosit.dagger.android.application;
+package com.anprosit.android.dagger.application;
 
 import android.app.Application;
+
+import com.anprosit.android.dagger.DaggerContext;
 
 import java.util.List;
 
@@ -9,7 +11,7 @@ import dagger.ObjectGraph;
 /**
  * Created by Hirofumi Nakagawa on 13/07/21.
  */
-public abstract class DaggerApplication extends Application {
+public abstract class DaggerApplication extends Application implements DaggerContext {
 	private ObjectGraph mApplicationGraph;
 
 	@Override
@@ -21,7 +23,8 @@ public abstract class DaggerApplication extends Application {
 
 	protected abstract List<Object> getModules();
 
-	public ObjectGraph getApplicationGraph() {
+	@Override
+	public ObjectGraph getObjectGraph() {
 		return mApplicationGraph;
 	}
 }

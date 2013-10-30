@@ -1,10 +1,10 @@
-package com.anprosit.dagger.android;
+package com.anprosit.android.dagger;
 
 import android.app.Service;
 import android.content.Context;
 
-import com.anprosit.dagger.android.annotation.ForService;
-import com.anprosit.dagger.android.service.DaggerService;
+import com.anprosit.android.dagger.annotation.ForService;
+import com.anprosit.android.dagger.service.DaggerService;
 
 import javax.inject.Singleton;
 
@@ -29,7 +29,7 @@ public class ServiceModule {
 	@Provides
 	@Singleton
 	ObjectGraph provideServiceGraph() {
-		return ((DaggerService) mService).getServiceGraph();
+		return ((DaggerService) mService).getObjectGraph();
 	}
 
 	@Provides

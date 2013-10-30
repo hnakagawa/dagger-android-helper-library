@@ -1,4 +1,4 @@
-package com.anprosit.dagger.android.annotation;
+package com.anprosit.android.dagger.annotation;
 
 /**
  * Created by Hirofumi Nakagawa on 13/07/21.
@@ -12,5 +12,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Qualifier
 @Retention(RUNTIME)
-public @interface ForApplication {
+public @interface ForActivity {
 }

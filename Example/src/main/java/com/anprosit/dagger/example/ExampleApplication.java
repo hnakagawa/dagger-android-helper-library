@@ -1,7 +1,8 @@
 package com.anprosit.dagger.example;
 
-import com.anprosit.dagger.android.ApplicationModule;
-import com.anprosit.dagger.android.application.DaggerApplication;
+
+import com.anprosit.android.dagger.AndroidModule;
+import com.anprosit.android.dagger.application.DaggerApplication;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,6 @@ import java.util.List;
 public class ExampleApplication extends DaggerApplication {
 	@Override
 	protected List<Object> getModules() {
-		return Arrays.asList(new ApplicationModule(this), new ExampleApplicationModule());
+		return Arrays.asList(new AndroidModule(this), new ExampleApplicationModule());
 	}
 }

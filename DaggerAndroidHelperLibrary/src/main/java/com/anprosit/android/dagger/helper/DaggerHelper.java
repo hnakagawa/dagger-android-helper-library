@@ -1,8 +1,8 @@
-package com.anprosit.dagger.android.helper;
+package com.anprosit.android.dagger.helper;
 
 import android.content.Context;
 
-import com.anprosit.dagger.android.application.DaggerApplication;
+import com.anprosit.android.dagger.application.DaggerApplication;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class DaggerHelper {
 
 	public void onCreate(Context context, List<Object> modules) {
 		DaggerApplication application = (DaggerApplication) context.getApplicationContext();
-		mObjectGraph = application.getApplicationGraph().plus(modules.toArray());
+		mObjectGraph = application.getObjectGraph().plus(modules.toArray());
 
 		// Inject ourselves so subclasses will have dependencies fulfilled when this method returns.
 		mObjectGraph.inject(context);
