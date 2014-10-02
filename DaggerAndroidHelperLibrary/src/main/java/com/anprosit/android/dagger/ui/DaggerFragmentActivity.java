@@ -18,8 +18,8 @@ public abstract class DaggerFragmentActivity extends FragmentActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+        mHelper.onCreate(this, getModules());
 		super.onCreate(savedInstanceState);
-		mHelper.onCreate(this, getModules());
 	}
 
 	@Override
