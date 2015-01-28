@@ -1,7 +1,8 @@
-package com.anprosit.android.dagger.ui;
+package com.anprosit.android.dagger.service;
 
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.service.dreams.DreamService;
 
 import com.anprosit.android.dagger.DaggerContext;
 import com.anprosit.android.dagger.helper.DaggerHelper;
@@ -11,19 +12,20 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * Created by Hirofumi Nakagawa on 13/07/21.
+ * @author KeithYokoma
  */
-public abstract class DaggerFragmentActivity extends FragmentActivity implements DaggerContext {
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+public abstract class DaggerDreamService extends DreamService implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-        mHelper.onCreate(this, getModules());
-		super.onCreate(savedInstanceState);
+	public void onCreate() {
+		super.onCreate();
+		mHelper.onCreate(this, getModules());
 	}
 
 	@Override
-	protected void onDestroy() {
+	public void onDestroy() {
 		mHelper.onDestroy();
 		super.onDestroy();
 	}

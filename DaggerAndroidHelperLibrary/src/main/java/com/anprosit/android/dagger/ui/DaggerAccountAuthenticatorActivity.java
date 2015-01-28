@@ -1,6 +1,6 @@
 package com.anprosit.android.dagger.ui;
 
-import android.app.Activity;
+import android.accounts.AccountAuthenticatorActivity;
 import android.os.Bundle;
 
 import com.anprosit.android.dagger.DaggerContext;
@@ -11,9 +11,9 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
-public abstract class DaggerActivity extends Activity implements DaggerContext {
+public abstract class DaggerAccountAuthenticatorActivity extends AccountAuthenticatorActivity implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override

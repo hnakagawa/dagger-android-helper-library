@@ -1,7 +1,7 @@
-package com.anprosit.android.dagger.ui;
+package com.anprosit.android.dagger.service;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.app.IntentService;
+import android.content.Intent;
 
 import com.anprosit.android.dagger.DaggerContext;
 import com.anprosit.android.dagger.helper.DaggerHelper;
@@ -11,22 +11,29 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
-public abstract class DaggerActivity extends Activity implements DaggerContext {
+public abstract class DaggerIntentService extends IntentService implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		mHelper.onCreate(this, getModules());
-		super.onCreate(savedInstanceState);
+	public DaggerIntentService(String name) {
+		super(name);
 	}
 
 	@Override
-	protected void onDestroy() {
+	public void onCreate() {
+		super.onCreate();
+		mHelper.onCreate(this, getModules());
+	}
+
+	@Override
+	public void onDestroy() {
 		mHelper.onDestroy();
 		super.onDestroy();
 	}
+
+	@Override
+	protected abstract void onHandleIntent(Intent intent);
 
 	protected abstract List<Object> getModules();
 

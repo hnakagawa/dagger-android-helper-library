@@ -1,6 +1,6 @@
 package com.anprosit.android.dagger.application;
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.anprosit.android.dagger.DaggerContext;
 
@@ -9,16 +9,23 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * Created by Hirofumi Nakagawa on 13/07/21.
+ * @author hnakagawa
  */
-public abstract class DaggerApplication extends Application implements DaggerContext {
+public abstract class DaggerMultiDexApplication extends MultiDexApplication implements DaggerContext {
 	private ObjectGraph mApplicationGraph;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		mApplicationGraph = ObjectGraph.create(getModules().toArray());
-		mApplicationGraph.inject(this);
+
+		// Workaround for multidex
+		new Runnable() {
+			@Override
+			public void run() {
+				mApplicationGraph = ObjectGraph.create(getModules().toArray());
+				mApplicationGraph.inject(DaggerMultiDexApplication.this);
+			}
+		}.run();
 	}
 
 	protected abstract List<Object> getModules();

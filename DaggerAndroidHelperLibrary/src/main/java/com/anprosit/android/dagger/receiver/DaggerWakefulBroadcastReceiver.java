@@ -1,16 +1,16 @@
 package com.anprosit.android.dagger.receiver;
 
 import android.app.Application;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.WakefulBroadcastReceiver;
 
 import com.anprosit.android.dagger.application.DaggerApplication;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
-public abstract class DaggerBroadcastReceiver extends BroadcastReceiver {
+public abstract class DaggerWakefulBroadcastReceiver extends WakefulBroadcastReceiver {
 	@Override
 	public final void onReceive(Context context, Intent intent) {
 		DaggerApplication application = (DaggerApplication) context.getApplicationContext();

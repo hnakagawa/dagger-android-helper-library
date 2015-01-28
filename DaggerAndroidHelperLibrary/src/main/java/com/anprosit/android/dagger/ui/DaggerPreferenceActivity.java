@@ -1,7 +1,7 @@
 package com.anprosit.android.dagger.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
 import com.anprosit.android.dagger.DaggerContext;
 import com.anprosit.android.dagger.helper.DaggerHelper;
@@ -11,9 +11,9 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
-public abstract class DaggerActivity extends Activity implements DaggerContext {
+public abstract class DaggerPreferenceActivity extends PreferenceActivity implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override

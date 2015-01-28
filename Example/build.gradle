@@ -1,34 +1,23 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.2'
-    }
-}
 apply plugin: 'com.android.application'
-
-repositories {
-    mavenCentral()
-}
 
 configurations {
     apt
 }
 
 dependencies {
+    provided 'com.squareup.dagger:dagger-compiler:1.2.2'
     compile project(':DaggerAndroidHelperLibrary')
-    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.squareup.dagger:dagger:1.2.2'
-    apt 'com.squareup.dagger:dagger-compiler:1.2.2'
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 19
+        minSdkVersion 9
+        targetSdkVersion 21
     }
 }

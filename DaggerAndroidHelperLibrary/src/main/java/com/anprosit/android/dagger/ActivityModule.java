@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 
 import com.anprosit.android.dagger.annotation.ForActivity;
-import com.anprosit.android.dagger.ui.DaggerActivity;
-import com.anprosit.android.dagger.ui.DaggerFragmentActivity;
 
 import javax.inject.Singleton;
 
@@ -30,9 +28,8 @@ public class ActivityModule {
 	@Provides
 	@Singleton
 	ObjectGraph provideActivityGraph() {
-		if (mActivity instanceof DaggerFragmentActivity)
-			return ((DaggerFragmentActivity) mActivity).getObjectGraph();
-		return ((DaggerActivity) mActivity).getObjectGraph();
+		DaggerContext context = (DaggerContext) mActivity;
+		return context.getObjectGraph();
 	}
 
 	@Provides

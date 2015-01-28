@@ -7,4 +7,6 @@ import dagger.ObjectGraph;
  */
 public interface DaggerContext {
 	public ObjectGraph getObjectGraph();
+
+	public <T> T inject(T obj);
 }

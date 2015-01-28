@@ -1,16 +1,13 @@
-package com.anprosit.android.dagger.ui;
+package com.anprosit.android.dagger.ui.v4;
 
-import android.annotation.TargetApi;
-import android.app.Fragment;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
 import com.anprosit.android.dagger.DaggerContext;
 
 /**
  * @author hnakagawa
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class DaggerFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

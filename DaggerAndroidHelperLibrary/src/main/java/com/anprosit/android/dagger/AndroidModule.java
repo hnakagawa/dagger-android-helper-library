@@ -1,9 +1,16 @@
 package com.anprosit.android.dagger;
 
 import android.annotation.TargetApi;
+import android.app.ActivityManager;
 import android.app.Application;
+import android.app.KeyguardManager;
+import android.app.NotificationManager;
+import android.app.UiModeManager;
+import android.appwidget.AppWidgetManager;
 import android.bluetooth.BluetoothAdapter;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.SensorManager;
 import android.location.LocationManager;
 import android.media.AudioManager;
@@ -13,13 +20,13 @@ import android.os.Looper;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.speech.SpeechRecognizer;
+import android.support.v4.app.NotificationManagerCompat;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
 
 import com.anprosit.android.dagger.annotation.ForApplication;
-import com.anprosit.android.dagger.application.DaggerApplication;
 import com.anprosit.android.dagger.factory.MediaPlayerFactory;
 import com.anprosit.android.dagger.factory.MediaRecorderFactory;
 
@@ -47,7 +54,7 @@ public class AndroidModule {
 	@Provides
 	@Singleton
 	ObjectGraph provideApplicationGraph() {
-		return ((DaggerApplication) mApplication).getObjectGraph();
+		return ((DaggerContext) mApplication).getObjectGraph();
 	}
 
 	@Provides
@@ -66,6 +73,11 @@ public class AndroidModule {
 	@Provides
 	Handler provideHandler() {
 		return new Handler(Looper.getMainLooper());
+	}
+
+	@Provides
+	PackageManager providePackageManager() {
+		return mApplication.getPackageManager();
 	}
 
 	@Provides
@@ -150,5 +162,47 @@ public class AndroidModule {
 	@TargetApi(10)
 	NfcAdapter provideNfcAdapter() {
 		return NfcAdapter.getDefaultAdapter(mApplication);
+	}
+
+	@Provides
+	@Singleton
+	ActivityManager provideActividyManager() {
+		return (ActivityManager)mApplication.getSystemService(Context.ACTIVITY_SERVICE);
+	}
+
+	@Provides
+	@Singleton
+	KeyguardManager provideKeygurdManager() {
+		return (KeyguardManager)mApplication.getSystemService(Context.KEYGUARD_SERVICE);
+	}
+
+	@Provides
+	@Singleton
+	UiModeManager provideUiModeManager() {
+		return (UiModeManager) mApplication.getSystemService(Context.UI_MODE_SERVICE);
+	}
+
+	@Provides
+	@Singleton
+	@TargetApi(11)
+	ClipboardManager provideClipboardManager() {
+		return (ClipboardManager)mApplication.getSystemService(Context.CLIPBOARD_SERVICE);
+	}
+
+	@Provides
+	@Singleton
+	NotificationManager provideNotificationManager() {
+		return (NotificationManager) mApplication.getSystemService(Context.NOTIFICATION_SERVICE);
+	}
+
+	@Provides
+	@Singleton
+	AppWidgetManager provideAppWidgetManager() {
+		return (AppWidgetManager) AppWidgetManager.getInstance(mApplication);
+	}
+
+	@Provides
+	NotificationManagerCompat provideNotificationManagerCompat() {
+		return NotificationManagerCompat.from(mApplication);
 	}
 }

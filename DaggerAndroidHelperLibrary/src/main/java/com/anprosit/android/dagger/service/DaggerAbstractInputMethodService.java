@@ -1,7 +1,6 @@
-package com.anprosit.android.dagger.ui;
+package com.anprosit.android.dagger.service;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.inputmethodservice.AbstractInputMethodService;
 
 import com.anprosit.android.dagger.DaggerContext;
 import com.anprosit.android.dagger.helper.DaggerHelper;
@@ -11,26 +10,25 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
-public abstract class DaggerActivity extends Activity implements DaggerContext {
+public abstract class DaggerAbstractInputMethodService extends AbstractInputMethodService implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate() {
+		super.onCreate();
 		mHelper.onCreate(this, getModules());
-		super.onCreate(savedInstanceState);
 	}
 
 	@Override
-	protected void onDestroy() {
+	public void onDestroy() {
 		mHelper.onDestroy();
 		super.onDestroy();
 	}
 
 	protected abstract List<Object> getModules();
 
-	@Override
 	public <T> T inject(T obj) {
 		return mHelper.inject(obj);
 	}
