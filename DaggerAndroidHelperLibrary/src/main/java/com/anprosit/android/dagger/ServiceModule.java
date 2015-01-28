@@ -29,7 +29,7 @@ public class ServiceModule {
 	@Provides
 	@Singleton
 	ObjectGraph provideServiceGraph() {
-		return ((DaggerService) mService).getObjectGraph();
+		return ((DaggerContext) mService).getObjectGraph();
 	}
 
 	@Provides

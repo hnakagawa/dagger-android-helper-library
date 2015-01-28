@@ -1,6 +1,5 @@
-package com.anprosit.android.dagger.ui;
+package com.anprosit.android.dagger.ui.v7;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.anprosit.android.dagger.DaggerContext;
@@ -11,15 +10,15 @@ import java.util.List;
 import dagger.ObjectGraph;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
-public abstract class DaggerActivity extends Activity implements DaggerContext {
+public abstract class DaggerAccountAuthenticatorActionBarActivity extends AccountAuthenticatorActionBarActivity implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		mHelper.onCreate(this, getModules());
 		super.onCreate(savedInstanceState);
+		mHelper.onCreate(this, getModules());
 	}
 
 	@Override

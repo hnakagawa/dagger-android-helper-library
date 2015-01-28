@@ -1,17 +1,17 @@
 package com.anprosit.android.dagger.ui;
 
 import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 
 import com.anprosit.android.dagger.DaggerContext;
 
 /**
- * @author hnakagawa
+ * @author KeithYokoma
  */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class DaggerFragment extends Fragment {
+public class DaggerPreferenceFragment extends PreferenceFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
