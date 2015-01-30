@@ -17,14 +17,14 @@ public abstract class DaggerWallpaperService extends WallpaperService implements
 
 	@Override
 	public void onCreate() {
-		super.onCreate();
 		mHelper.onCreate(this, getModules());
+		super.onCreate();
 	}
 
 	@Override
 	public void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	protected abstract List<Object> getModules();

@@ -24,8 +24,8 @@ public abstract class DaggerListActivity extends ListActivity implements DaggerC
 
 	@Override
 	protected void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	protected abstract List<Object> getModules();

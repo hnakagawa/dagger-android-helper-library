@@ -17,14 +17,14 @@ public abstract class DaggerAccountAuthenticatorFragmentActivity extends Account
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		mHelper.onCreate(this, getModules());
+		super.onCreate(savedInstanceState);
 	}
 
 	@Override
 	protected void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	protected abstract List<Object> getModules();

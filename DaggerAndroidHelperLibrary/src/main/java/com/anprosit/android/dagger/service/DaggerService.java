@@ -19,14 +19,14 @@ public abstract class DaggerService extends Service implements DaggerContext {
 
 	@Override
 	public void onCreate() {
-		super.onCreate();
 		mHelper.onCreate(this, getModules());
+		super.onCreate();
 	}
 
 	@Override
 	public void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	@Override
