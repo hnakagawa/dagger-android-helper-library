@@ -19,17 +19,8 @@ android {
     }
 }
 
-def repos = new File(rootDir, "repository")
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
 
-apply plugin: 'maven'
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository url: "file://${repos.absolutePath}"
-            pom.version = '0.0.1'
-            pom.groupId = 'com.anprosit'
-            pom.artifactId = 'android.dagger'
-        }
-    }
+afterEvaluate {
+    androidJavadocs.classpath += project.android.libraryVariants.toList().first().javaCompile.classpath
 }

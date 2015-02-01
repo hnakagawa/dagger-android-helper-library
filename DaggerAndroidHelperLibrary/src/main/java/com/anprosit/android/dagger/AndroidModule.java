@@ -37,8 +37,6 @@ import dagger.ObjectGraph;
 import dagger.Provides;
 
 /**
- * Created by Hirofumi Nakagawa on 13/07/21.
- * <p/>
  * Global module for Android application
  */
 @Module(
