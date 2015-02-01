@@ -24,8 +24,8 @@ public abstract class DaggerAccountAuthenticatorActivity extends AccountAuthenti
 
 	@Override
 	protected void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	protected abstract List<Object> getModules();

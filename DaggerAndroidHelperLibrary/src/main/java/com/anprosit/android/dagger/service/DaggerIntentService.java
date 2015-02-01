@@ -22,14 +22,14 @@ public abstract class DaggerIntentService extends IntentService implements Dagge
 
 	@Override
 	public void onCreate() {
-		super.onCreate();
 		mHelper.onCreate(this, getModules());
+		super.onCreate();
 	}
 
 	@Override
 	public void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	@Override

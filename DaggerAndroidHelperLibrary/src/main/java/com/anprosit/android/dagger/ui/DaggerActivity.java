@@ -24,8 +24,8 @@ public abstract class DaggerActivity extends Activity implements DaggerContext {
 
 	@Override
 	protected void onDestroy() {
-		mHelper.onDestroy();
 		super.onDestroy();
+		mHelper.onDestroy();
 	}
 
 	protected abstract List<Object> getModules();
