@@ -27,6 +27,7 @@ public class ActivityModule {
 
 	@Provides
 	@Singleton
+	@ForActivity
 	ObjectGraph provideActivityGraph() {
 		DaggerContext context = (DaggerContext) mActivity;
 		return context.getObjectGraph();

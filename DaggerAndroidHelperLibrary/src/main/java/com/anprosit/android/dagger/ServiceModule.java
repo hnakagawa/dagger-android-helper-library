@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Context;
 
 import com.anprosit.android.dagger.annotation.ForService;
-import com.anprosit.android.dagger.service.DaggerService;
 
 import javax.inject.Singleton;
 
@@ -28,6 +27,7 @@ public class ServiceModule {
 
 	@Provides
 	@Singleton
+	@ForService
 	ObjectGraph provideServiceGraph() {
 		return ((DaggerContext) mService).getObjectGraph();
 	}

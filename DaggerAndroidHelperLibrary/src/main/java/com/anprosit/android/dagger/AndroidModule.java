@@ -51,6 +51,7 @@ public class AndroidModule {
 
 	@Provides
 	@Singleton
+	@ForApplication
 	ObjectGraph provideApplicationGraph() {
 		return ((DaggerContext) mApplication).getObjectGraph();
 	}
