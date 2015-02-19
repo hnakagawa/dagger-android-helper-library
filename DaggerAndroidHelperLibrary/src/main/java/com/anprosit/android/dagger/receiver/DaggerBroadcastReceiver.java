@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.anprosit.android.dagger.application.DaggerApplication;
+import com.anprosit.android.dagger.DaggerContext;
 
 /**
  * @author hnakagawa
@@ -13,9 +13,8 @@ import com.anprosit.android.dagger.application.DaggerApplication;
 public abstract class DaggerBroadcastReceiver extends BroadcastReceiver {
 	@Override
 	public final void onReceive(Context context, Intent intent) {
-		DaggerApplication application = (DaggerApplication) context.getApplicationContext();
-		application.getObjectGraph().inject(this);
-		onHandleIntent(application, intent);
+		((DaggerContext) context.getApplicationContext()).getObjectGraph().inject(this);
+		onHandleIntent((Application) context.getApplicationContext(), intent);
 	}
 
 	public abstract void onHandleIntent(Application application, Intent intent);
