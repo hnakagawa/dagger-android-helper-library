@@ -1,6 +1,5 @@
 package com.anprosit.android.dagger.application;
 
-import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
 import com.anprosit.android.dagger.DaggerContext;
@@ -16,8 +15,8 @@ public abstract class DaggerMultiDexApplication extends MultiDexApplication impl
 	private ObjectGraph mApplicationGraph;
 
 	@Override
-	protected void attachBaseContext(Context base) {
-		super.attachBaseContext(base);
+	public void onCreate() {
+		super.onCreate();
 
 		// Workaround for multidex
 		new Runnable() {
