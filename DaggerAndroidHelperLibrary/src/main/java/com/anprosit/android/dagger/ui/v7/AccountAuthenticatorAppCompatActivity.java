@@ -3,14 +3,12 @@ package com.anprosit.android.dagger.ui.v7;
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * @author KeithYokoma
- * @deprecated Since {@link android.support.v7.app.ActionBarActivity} is deprecated, this class is also deprecated. Use {@link AccountAuthenticatorAppCompatActivity} instead.
  */
-@Deprecated
-public class AccountAuthenticatorActionBarActivity extends ActionBarActivity {
+public class AccountAuthenticatorAppCompatActivity extends AppCompatActivity {
 	private AccountAuthenticatorResponse mAccountAuthenticatorResponse = null;
 	private Bundle mResultBundle = null;
 

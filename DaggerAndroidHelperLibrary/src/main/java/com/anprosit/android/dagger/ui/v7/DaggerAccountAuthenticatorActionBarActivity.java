@@ -11,7 +11,9 @@ import dagger.ObjectGraph;
 
 /**
  * @author KeithYokoma
+ * @deprecated Since {@link android.support.v7.app.ActionBarActivity} is deprecated, this class is also deprecated. Use {@link DaggerAccountAuthenticatorAppCompatActivity} instead.
  */
+@Deprecated
 public abstract class DaggerAccountAuthenticatorActionBarActivity extends AccountAuthenticatorActionBarActivity implements DaggerContext {
 	private DaggerHelper mHelper = new DaggerHelper();
 
