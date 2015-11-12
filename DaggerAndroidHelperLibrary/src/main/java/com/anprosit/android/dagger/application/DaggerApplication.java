@@ -1,7 +1,6 @@
 package com.anprosit.android.dagger.application;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.anprosit.android.dagger.DaggerContext;
 
@@ -16,9 +15,8 @@ public abstract class DaggerApplication extends Application implements DaggerCon
 	private ObjectGraph mApplicationGraph;
 
 	@Override
-	protected void attachBaseContext(Context base) {
-		super.attachBaseContext(base);
-
+	public void onCreate() {
+		super.onCreate();
 		mApplicationGraph = ObjectGraph.create(getModules().toArray());
 		mApplicationGraph.inject(this);
 	}
